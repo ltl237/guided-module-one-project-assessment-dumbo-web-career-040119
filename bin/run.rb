@@ -58,7 +58,8 @@ def change_char(character_name,team_id,group_id,available_chars)
 	# change_char_list = char_names_in_team
 	available_chars
 	# binding.pry
-	char_id = Character.find_by(char_name: character_name).id
+	char_id = Character.find_by(char_name:character_name).id
+	# binding.pry
 	team_to_change = Team.find_by(id: team_id)
 	group_to_change = Group.where(team_id: team_id)
 	current_char_ids_in_team = group_to_change.map{|group_inst| group_inst.character_id}
@@ -90,7 +91,7 @@ def change_char(character_name,team_id,group_id,available_chars)
 	puts "Here is your new team, #{team_to_change.team_name} "
 	group_to_change.each do |group|
 		current_char_names_in_team << Character.find_by(id: group.character_id).char_name
-		group.save
+		# group.save
 		# character_id = Character.find_by(id: group.character_id)
 		# binding.pry
 	end
@@ -113,7 +114,10 @@ def change_char(character_name,team_id,group_id,available_chars)
 	# group_to_be_changed = 
 end
 
+# def change_char(character)
 
+	
+# end
 def view_single_team(single_team_string)
 	# available_chars = $character_list
 	single_team = single_team_string.split(',')[0]
